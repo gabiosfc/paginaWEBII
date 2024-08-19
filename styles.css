@@ -37,11 +37,13 @@ nav ul li a {
 
 main {
     padding: 20px;
+    padding-bottom: 60px;
 }
 
 main h2 {
     color: #333;
     margin-top: 20px;
+    
 }
 
 .user-info {
@@ -119,23 +121,14 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
+    padding: 10px 20px; 
     width: 100%;
+    box-sizing: border-box; 
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    .menu-lateral {
-        width: 200px;
-    }
-
-    .menu-btn {
-        top: 10px;
-        right: 10px;
+    footer {
+        padding: 15px 10px; 
+        font-size: 0.9rem; 
     }
 }
