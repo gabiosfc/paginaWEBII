@@ -253,25 +253,239 @@
 
             <section id="integracao">
                 <h2>4. Integração de APIs RESTful em Aplicações Web</h2>
-                <p>React.js, Vue.js, Testes e Documentação...</p>
+                <h3>Frameworks e Bibliotecas Populares</h3>
+                <h4>React.js</h4>
+                <p>React é uma biblioteca JavaScript popular para criar interfaces de usuário. Ele facilita o consumo de
+                    APIs RESTful com componentes reutilizáveis.</p>
+                <p>Exemplo de uso com <span style="color: green; font-family: 'Roboto Mono', sans-serif;">axios</span>:
+                </p>
+                <div class="codigo-container">
+                    <pre><code>
+                    import React, { useState, useEffect } from 'react';
+                    import axios from 'axios';
+
+                    function UserComponent() {
+                    const [user, setUser] = useState(null);
+
+                    useEffect(() => {
+                        axios.get('https://jsonplaceholder.typicode.com/users/1')
+                        .then(response => setUser(response.data))
+                        .catch(error => console.error('Erro:', error));
+                    }, []);
+
+                    return (
+                        &lt;div&gt;
+                        {user && (
+                            &lt;&gt;
+                            &lt;h2&gt;{user.name}&lt;/h2&gt;
+                            &lt;p&gt;Email: {user.email}&lt;/p&gt;
+                            &lt;p&gt;Phone: {user.phone}&lt;/p&gt;
+                            &lt;/&gt;
+                        )}
+                        &lt;/div&gt;
+                    );
+                    }
+
+                    export default UserComponent;
+                    </code></pre>
+                </div>
+                <h4>Vue.js</h4>
+                <p>Vue é outro framework JavaScript que facilita a integração com APIs. Aqui está um exemplo similar
+                    usando Vue:</p>
+                <div class="codigo-container">
+                    <pre><code>
+                    &lt;template&gt;
+                    &lt;div v-if="user"&gt;
+                        &lt;h2&gt;{{ user.name }}&lt;/h2&gt;
+                        &lt;p&gt;Email: {{ user.email }}&lt;/p&gt;
+                        &lt;p&gt;Phone: {{ user.phone }}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;/template&gt;
+
+                    &lt;script&gt;
+                    export default {
+                    data() {
+                        return {
+                        user: null,
+                        };
+                    },
+                    created() {
+                        fetch('https://jsonplaceholder.typicode.com/users/1')
+                        .then(response =&gt; response.json())
+                        .then(data =&gt; {
+                            this.user = data;
+                        })
+                        .catch(error =&gt; console.error('Erro:', error));
+                    },
+                    };
+                    &lt;/script&gt;
+                    </code></pre>
+                </div>
+                <h3>Ferramentas para Testes e Documentação de APIs</h3>
+                <ul>
+                    <li>
+                        <b>Postman</b>: Utilizado para testar e automatizar as requisições às APIs.
+                    </li>
+                    <li>
+                        <b>Swagger</b>: Uma ferramenta de código aberto para criar, gerar e documentar APIs RESTful.
+                    </li>
+                </ul>
+                <p>Exemplo de teste com Postman:</p>
+                <p>1. Crie uma nova requisição GET.</p>
+                <p>2. Insira a URL da API: <span style="color: green; font-family: 'Roboto Mono', sans-serif;">https://jsonplaceholder.typicode.com/users/1</span>.</p>
+                <p>3. Clique em "Send" e visualize a resposta.</p>
+
 
             </section>
 
             <section id="seguranca">
                 <h2>5. Segurança no Consumo de APIs</h2>
-                <p>Autenticação, Autorização, Proteção contra ataques...</p>
-
+                <h3>Autenticação e Autorização</h3>
+                <p>Assegurar que apenas usuários autorizados possam acessar os recursos é crucial. Métodos comuns incluem:
+                </p>
+                <ul>
+                    <li>
+                        <b>JWT (JSON Web Token)</b>: Um padrão para criar tokens de autenticação.
+                    </li>
+                    <li>
+                        <b>OAuth</b>: Um protocolo de autorização que permite o acesso seguro aos recursos.
+                    </li>
+                </ul>
+                <p>Exemplo de uso de JWT:</p>
+                <div class="codigo-container">
+                    <pre><code>
+                    fetch('https://api.example.com/protected', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                    })
+                    .then(response =&gt; response.json())
+                    .then(data =&gt; console.log(data))
+                    .catch(error =&gt; console.error('Erro:', error));
+                    </code></pre>
+                </div>
+                <h3>Proteção contra Ataques</h3>
+                <ul>
+                    <li>
+                        <b>CSRF (Cross-Site Request Forgery)</b>: Proteja contra ataques usando tokens CSRF.
+                    </li>
+                    <li>
+                        <b>XSS (Cross-Site Scripting)</b>: Evite a inserção de scripts maliciosos na aplicação.
+                    </li>
+                    <li>
+                        <b>CORS (Cross-Origin Resource Sharing)</b>: Controle quem pode acessar sua API.
+                    </li>
+                </ul>
+                <h3>Boas Práticas</h3>
+                <ul>
+                    <li>Use HTTPS para encriptar a comunicação.</li>
+                    <li>Valide e sanitize todos os dados de entrada.</li>
+                    <li>Limite o número de requisições para evitar ataques de força bruta.</li>
+                </ul>
             </section>
 
             <section id="responsivo">
                 <h2>6. Desenvolvimento Responsivo</h2>
-                <p>Importância, Técnicas, Exemplo Prático...</p>
+                <h3>Importância da Responsividade</h3>
+                <p>Com o aumento do uso de dispositivos móveis, garantir que sua aplicação seja acessível em diferentes dispositivos é essencial para a experiência do usuário.</p>
+                <h3>Técnicas para Desenvolvimento Responsivo</h3>
+                <ul>
+                    <li>
+                        <b>Media Queries</b>: Adapte o layout para diferentes tamanhos de tela.
+                    </li>
+                    <li>
+                        <b>Layout Flexível</b>: Use unidades relativas <span style="color: green; font-family: 'Roboto Mono', sans-serif;">(%, vw, vh)</span> para um layout fluido.
+                    </li>
+                    <li>
+                        <b>Imagens Responsivas</b>: Utilize a tag <span style="color: green; font-family: 'Roboto Mono', sans-serif;">&lt;picture&gt;</span> ou o atributo srcset para servir imagens otimizadas.
+                    </li>
+                </ul>
+                <p>Exemplo de media query:</p>
+                <div class="codigo-container">
+                    <pre><code>
+                    /* Layout para telas pequenas */
+                    @media (max-width: 600px) {
+                    body {
+                        font-size: 14px;
+                    }
+                    }
 
+                    /* Layout para telas maiores */
+                    @media (min-width: 601px) {
+                    body {
+                        font-size: 16px;
+                    }
+                    }
+                    </code></pre>
+                </div>
+                <h3>Exemplo Prático</h3>
+                <p>Crie uma página HTML simples que consome uma API e se adapta a diferentes dispositivos</p>
+                <div class="codigo-container">
+                    <pre><code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                    &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;title&gt;API Responsiva&lt;/title&gt;
+                    &lt;style&gt;
+                        body {
+                        font-family: Arial, sans-serif;
+                        padding: 20px;
+                        }
+                        .user-info {
+                        max-width: 600px;
+                        margin: 0 auto;
+                        }
+                        @media (max-width: 600px) {
+                        body {
+                            padding: 10px;
+                        }
+                        }
+                    &lt;/style&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    &lt;div id="user-info" class="user-info"&gt;&lt;/div&gt;
+
+                    &lt;script&gt;
+                        const url = 'https://jsonplaceholder.typicode.com/users/1';
+
+                        fetch(url)
+                        .then(response =&gt; response.json())
+                        .then(data =&gt; {
+                            const userInfoDiv = document.getElementById('user-info');
+                            userInfoDiv.innerHTML = `
+                            &lt;h2&gt;${data.name}&lt;/h2&gt;
+                            &lt;p&gt;Email: ${data.email}&lt;/p&gt;
+                            &lt;p&gt;Phone: ${data.phone}&lt;/p&gt;
+                            `;
+                        })
+                        .catch(error =&gt; console.error('Erro:', error));
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+                    </code></pre>
             </section>
 
             <section id="conclusao">
                 <h2>7. Considerações Finais e Recomendações</h2>
-                <p>Dicas para melhores práticas, recursos adicionais...</p>
+                <h3>Dicas para Melhores Práticas</h3>
+                <ul>
+                    <li>
+                        <b>Manter a simplicidade</b>: APIs devem ser simples de entender e utilizar.
+                    </li>
+                    <li>
+                        <b>Documentar tudo</b>: Uma boa documentação facilita o uso e manutenção da API.
+                    </li>
+                    <li>
+                        <b>Implementar segurança</b>: Proteja sua API contra acessos não autorizados e vulnerabilidades comuns.
+                    </li>
+                </ul>
+                <h3>Recursos Adicionais</h3>
+                <p><b>Documentação do MDN sobre APIs Web</b>: <a href="https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Client-side_web_APIs/Introduction" target="_blank">MDN Web Docs</a>
+                </p>
+                <p><b>Curso sobre RESTful APIs</b>: Curso RESTful API</p>
+                <p>teste teste</p>
 
             </section>
         </main>
