@@ -62,6 +62,24 @@ footer {
     bottom: 0;
     width: 100%;
 }
+.json-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #c0c0c0;
+    overflow-x: auto;
+    font-family: 'Roboto Mono', sans-serif, monospace;
+}
+
+.json-container pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.json-container code {
+    display: block;
+    color: green;
+}
 
 /* Estilo responsivo */
 @media (max-width: 600px) {

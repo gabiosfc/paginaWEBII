@@ -34,10 +34,11 @@
                 permitindo que eles compartilhem dados e funcionalidades.</p>
             <p>Exemplos de APIs populares incluem:</p>
             <ul>
-                <li>Google Maps API: Permite a integração de mapas e dados geográficos em aplicativos</li>
-                <li>Twitter API: Permite que desenvolvedores acessem dados do Twitter, como tweets e perfis de usuários.
+                <li><b>Google Maps API</b>: Permite a integração de mapas e dados geográficos em aplicativos</li>
+                <li><b>Twitter API</b>: Permite que desenvolvedores acessem dados do Twitter, como tweets e perfis de
+                    usuários.
                 </li>
-                <li>OpenWeatherMap API: Fornece dados meteorológicos para várias localizações.</li>
+                <li><b>OpenWeatherMap API</b>: Fornece dados meteorológicos para várias localizações.</li>
             </ul>
             <h3>Conceito de RESTful APIs</h3>
             <p>REST (Representational State Transfer) é um estilo de arquitetura que define um conjunto de restrições
@@ -46,28 +47,33 @@
             </p>
             <p>Os principais princípios REST incluem:</p>
             <ul>
-                <li>Stateless (Sem Estado): Cada requisição de cliente para servidor deve conter todas as informações
+                <li><b>Stateless (Sem Estado)</b>: Cada requisição de cliente para servidor deve conter todas as
+                    informações
                     necessárias para o servidor entender e processar a solicitação.
                 </li>
-                <li>Client-Server (Cliente-Servidor): A separação entre o cliente e o servidor permite que eles evoluam
+                <li><b>Client-Server (Cliente-Servidor)</b>: A separação entre o cliente e o servidor permite que eles
+                    evoluam
                     de forma independente.
                 </li>
-                <li>Cacheable (Cacheável): As respostas devem ser explicitamente rotuladas como cacheáveis ou não
+                <li><b>Cacheable (Cacheável)</b>: As respostas devem ser explicitamente rotuladas como cacheáveis ou não
                     cacheáveis, o que melhora a eficiência das requisições subsequentes.
                 </li>
-                <li>Layered System (Sistema em Camadas): A arquitetura permite o uso de camadas intermediárias, como
+                <li><b>Layered System (Sistema em Camadas)</b>: A arquitetura permite o uso de camadas intermediárias,
+                    como
                     servidores de cache ou proxies, para melhorar a escalabilidade e a segurança.
                 </li>
             </ul>
             <h3>Vantagens do Uso de APIs RESTful em Aplicações Web</h3>
             <ul>
-                <li>Escalabilidade: As APIs RESTful são projetadas para funcionar bem em grandes redes distribuídas,
+                <li><b>Escalabilidade</b>: As APIs RESTful são projetadas para funcionar bem em grandes redes
+                    distribuídas,
                     facilitando o crescimento da aplicação.
                 </li>
-                <li>Facilidade de Integração: A simplicidade e padronização das APIs RESTful facilitam a integração com
+                <li><b>Facilidade de Integração</b>: A simplicidade e padronização das APIs RESTful facilitam a
+                    integração com
                     outros sistemas e serviços.
                 </li>
-                <li>Reusabilidade: APIs RESTful permitem que diferentes partes de uma aplicação compartilhem
+                <li><b>Reusabilidade</b>: APIs RESTful permitem que diferentes partes de uma aplicação compartilhem
                     funcionalidades, reduzindo a duplicação de código.
                 </li>
             </ul>
@@ -75,12 +81,118 @@
 
         <section id="componentes">
             <h2>Componentes de uma API RESTful</h2>
-            <p>Métodos HTTP, Endpoints, Status Codes, Headers...</p>
-            <!-- Continue com o conteúdo dos componentes -->
+            <h3>Métodos HTTP</h3>
+            <p>As APIs RESTful utilizam métodos HTTP para realizar operações em recursos. Os principais métodos são:</p>
+            <ul>
+                <li>
+                    <b>GET</b>: Recupera informações de um servidor. Exemplo: obter os detalhes de um usuário.
+                </li>
+                <li>
+                    <b>POST</b>: Envia dados ao servidor para criar um novo recurso. Exemplo: criar um novo usuário.
+                </li>
+                <li>
+                    <b>PUT</b>: Atualiza um recurso existente com novos dados. Exemplo: atualizar as informações de um
+                    usuário.
+                </li>
+                <li>
+                    <b>DELETE</b>: Remove um recurso do servidor. Exemplo: excluir um usuário.
+                </li>
+                <li>
+                    <b>PATCH</b>: Aplica atualizações parciais a um recurso. Exemplo: atualizar parcialmente as
+                    informações de um usuário.
+                </li>
+            </ul>
+            <h3>Endpoints</h3>
+            <p>Endpoints são URLs que representam os recursos de uma API. Eles são os pontos de entrada para as
+                operações de API e devem ser bem estruturados e organizados. Boas práticas para criar endpoints incluem:
+            </p>
+            <ul>
+                <li>
+                    Usar substantivos no plural (ex: <span
+                        style="color: green; font-family: 'Roboto Mono', sans-serif;">/users</span> em vez de <span
+                        style="color: green; font-family: 'Roboto Mono', sans-serif;">/user</span>).
+                </li>
+                <li>
+                    Evitar verbos nos endpoints, já que a ação é indicada pelo método HTTP.
+                </li>
+                <li>
+                    Aninhar recursos relacionados para indicar hierarquia (ex: <span
+                        style="color: green; font-family: 'Roboto Mono', sans-serif;">/users/{userId}/orders</span>).
+                </li>
+            </ul>
+            <h3>Status Codes</h3>
+            <p>Os códigos de status HTTP indicam o resultado de uma requisição. Alguns dos códigos mais comuns incluem:
+            </p>
+            <ul>
+                <li>
+                    <b>200 OK</b>: A requisição foi bem-sucedida.
+                </li>
+                <li>
+                    <b>201 Created</b>: Um novo recurso foi criado com sucesso.
+                </li>
+                <li>
+                    <b>400 Bad Request</b>: A requisição é inválida ou malformada.
+                </li>
+                <li>
+                    <b>401 Unauthorized</b>: Autenticação é necessária para acessar o recurso.
+                </li>
+                <li>
+                    <b>404 Not Found</b>: O recurso solicitado não foi encontrado.
+                </li>
+                <li>
+                    <b>500 Internal Server Error</b>: O servidor encontrou um erro inesperado.
+                </li>
+            </ul>
+            <h3>Headers e Autenticação</h3>
+            <p>Headers HTTP carregam informações adicionais sobre a requisição ou a resposta. São usados para:</p>
+            <ul>
+                <li>
+                    <b>Autenticação</b>: Incluem tokens de autenticação, como JWT (JSON Web Tokens) ou OAuth.
+                </li>
+                <li>
+                    <b>Controle de cache</b>: Determinam como as respostas podem ser armazenadas em cache.
+                </li>
+                <li>
+                    <b>Controle de conteúdo</b>Especificam o tipo de conteúdo retornado (ex: <span
+                        style="color: green; font-family: 'Roboto Mono', sans-serif;">Content-Type:
+                        application/json</span>).
+                </li>
+            </ul>
+            <h3>Formatação de Dados</h3>
+            <p>As APIs RESTful geralmente usam JSON (JavaScript Object Notation) para trocar dados, devido à sua
+                simplicidade e compatibilidade com várias linguagens de programação. Outro formato comum é XML, embora
+                seja menos utilizado em novas aplicações.</p>
+            <p>Exemplo de resposta em JSON:</p>
+            <div class="json-container">
+                <pre><code>
+                {
+                    "id": 1,
+                    "name": "John Doe",
+                    "email": "john.doe@example.com"
+                }
+                </code></pre>
+            </div>
         </section>
 
         <section id="exemplo">
             <h2>Exemplo Prático: Consumindo uma API RESTful</h2>
+            <h3>Preparando o Ambiente</h3>
+            <p>Para começar a consumir uma API RESTful, você precisará das seguintes ferramentas:</p>
+            <ul>
+                <li>
+                    <b>Postman</b>: Uma ferramenta para testar APIs, facilitando a criação e envio de requisições HTTP.
+                </li>
+                <li>
+                    <b>Visual Studio Code (VSCode)</b>: Um editor de código leve e poderoso para escrever scripts e desenvolver sua aplicação.
+                </li>
+                <li>
+                    <b>Navegador da Web</b>: Para visualizar a aplicação em execução.
+                </li>
+            </ul>
+            <h3>Exemplo com uma API Pública</h3>
+            <p>Vamos consumir uma API pública, como a JSONPlaceholder, que é uma API falsa usada para testes. Vamos buscar os dados de um usuário usando JavaScript.</p>
+            <p>Código de exemplo utilizando <span
+                style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch:</span></p>
             <div id="user-info" class="user-info"></div>
             <!-- O conteúdo será preenchido pelo JavaScript -->
         </section>
@@ -88,25 +200,25 @@
         <section id="integracao">
             <h2>Integração de APIs RESTful em Aplicações Web</h2>
             <p>React.js, Vue.js, Testes e Documentação...</p>
-            <!-- Continue com o conteúdo da integração -->
+
         </section>
 
         <section id="seguranca">
             <h2>Segurança no Consumo de APIs</h2>
             <p>Autenticação, Autorização, Proteção contra ataques...</p>
-            <!-- Continue com o conteúdo da segurança -->
+
         </section>
 
         <section id="responsivo">
             <h2>Desenvolvimento Responsivo</h2>
             <p>Importância, Técnicas, Exemplo Prático...</p>
-            <!-- Continue com o conteúdo da responsividade -->
+
         </section>
 
         <section id="conclusao">
             <h2>Considerações Finais e Recomendações</h2>
             <p>Dicas para melhores práticas, recursos adicionais...</p>
-            <!-- Continue com o conteúdo da conclusão -->
+
         </section>
     </main>
 
