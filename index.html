@@ -9,194 +9,207 @@
 </head>
 
 <body>
-    <header>
-        <h1>Consumo de APIs RESTful em Aplicações Web</h1>
-        <nav>
-            <ul>
-                <li><a href="#introducao">Introdução</a></li>
-                <li><a href="#componentes">Componentes de uma API RESTful</a></li>
-                <li><a href="#exemplo">Exemplo Prático</a></li>
-                <li><a href="#integracao">Integração com Frameworks</a></li>
-                <li><a href="#seguranca">Segurança</a></li>
-                <li><a href="#responsivo">Desenvolvimento Responsivo</a></li>
-                <li><a href="#conclusao">Conclusão</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="menu-lateral">
+        <ul>
+            <li><a href="#introducao">1. Introdução</a></li>
+            <li><a href="#componentes">2. Componentes de uma API RESTful</a></li>
+            <li><a href="#exemplo">3. Exemplo Prático</a></li>
+            <li><a href="#integracao">4. Integração com Frameworks</a></li>
+            <li><a href="#seguranca">5. Segurança</a></li>
+            <li><a href="#responsivo">6. Desenvolvimento Responsivo</a></li>
+            <li><a href="#conclusao">7. Conclusão</a></li>
+        </ul>
+    </div>
+    <div class="conteudo">
+        <header>
+            <h1>Consumo de APIs RESTful em Aplicações Web</h1>
+        </header>
+        <main>
+            <section id="introducao">
+                <h2>1. Introdução ao Consumo de APIs RESTful</h2>
+                <h3>O que é uma API?</h3>
+                <p>Uma API (Application Programming Interface) é um conjunto de regras que permitem que diferentes
+                    softwares
+                    se comuniquem entre si. APIs definem os métodos e os dados que uma aplicação pode usar para
+                    interagir
+                    com outro software ou serviço. Elas são amplamente utilizadas para integrar diferentes sistemas,
+                    permitindo que eles compartilhem dados e funcionalidades.</p>
+                <p>Exemplos de APIs populares incluem:</p>
+                <ul>
+                    <li><b>Google Maps API</b>: Permite a integração de mapas e dados geográficos em aplicativos</li>
+                    <li><b>Twitter API</b>: Permite que desenvolvedores acessem dados do Twitter, como tweets e perfis
+                        de
+                        usuários.
+                    </li>
+                    <li><b>OpenWeatherMap API</b>: Fornece dados meteorológicos para várias localizações.</li>
+                </ul>
+                <h3>Conceito de RESTful APIs</h3>
+                <p>REST (Representational State Transfer) é um estilo de arquitetura que define um conjunto de
+                    restrições
+                    para a criação de serviços web. APIs que seguem os princípios REST são conhecidas como APIs RESTful.
+                    Essas APIs são projetadas para serem simples, escaláveis e fáceis de usar.
+                </p>
+                <p>Os principais princípios REST incluem:</p>
+                <ul>
+                    <li><b>Stateless (Sem Estado)</b>: Cada requisição de cliente para servidor deve conter todas as
+                        informações
+                        necessárias para o servidor entender e processar a solicitação.
+                    </li>
+                    <li><b>Client-Server (Cliente-Servidor)</b>: A separação entre o cliente e o servidor permite que
+                        eles
+                        evoluam
+                        de forma independente.
+                    </li>
+                    <li><b>Cacheable (Cacheável)</b>: As respostas devem ser explicitamente rotuladas como cacheáveis ou
+                        não
+                        cacheáveis, o que melhora a eficiência das requisições subsequentes.
+                    </li>
+                    <li><b>Layered System (Sistema em Camadas)</b>: A arquitetura permite o uso de camadas
+                        intermediárias,
+                        como
+                        servidores de cache ou proxies, para melhorar a escalabilidade e a segurança.
+                    </li>
+                </ul>
+                <h3>Vantagens do Uso de APIs RESTful em Aplicações Web</h3>
+                <ul>
+                    <li><b>Escalabilidade</b>: As APIs RESTful são projetadas para funcionar bem em grandes redes
+                        distribuídas,
+                        facilitando o crescimento da aplicação.
+                    </li>
+                    <li><b>Facilidade de Integração</b>: A simplicidade e padronização das APIs RESTful facilitam a
+                        integração com
+                        outros sistemas e serviços.
+                    </li>
+                    <li><b>Reusabilidade</b>: APIs RESTful permitem que diferentes partes de uma aplicação compartilhem
+                        funcionalidades, reduzindo a duplicação de código.
+                    </li>
+                </ul>
+            </section>
 
-    <main>
-        <section id="introducao">
-            <h2>Introdução ao Consumo de APIs RESTful</h2>
-            <h3>O que é uma API?</h3>
-            <p>Uma API (Application Programming Interface) é um conjunto de regras que permitem que diferentes softwares
-                se comuniquem entre si. APIs definem os métodos e os dados que uma aplicação pode usar para interagir
-                com outro software ou serviço. Elas são amplamente utilizadas para integrar diferentes sistemas,
-                permitindo que eles compartilhem dados e funcionalidades.</p>
-            <p>Exemplos de APIs populares incluem:</p>
-            <ul>
-                <li><b>Google Maps API</b>: Permite a integração de mapas e dados geográficos em aplicativos</li>
-                <li><b>Twitter API</b>: Permite que desenvolvedores acessem dados do Twitter, como tweets e perfis de
-                    usuários.
-                </li>
-                <li><b>OpenWeatherMap API</b>: Fornece dados meteorológicos para várias localizações.</li>
-            </ul>
-            <h3>Conceito de RESTful APIs</h3>
-            <p>REST (Representational State Transfer) é um estilo de arquitetura que define um conjunto de restrições
-                para a criação de serviços web. APIs que seguem os princípios REST são conhecidas como APIs RESTful.
-                Essas APIs são projetadas para serem simples, escaláveis e fáceis de usar.
-            </p>
-            <p>Os principais princípios REST incluem:</p>
-            <ul>
-                <li><b>Stateless (Sem Estado)</b>: Cada requisição de cliente para servidor deve conter todas as
-                    informações
-                    necessárias para o servidor entender e processar a solicitação.
-                </li>
-                <li><b>Client-Server (Cliente-Servidor)</b>: A separação entre o cliente e o servidor permite que eles
-                    evoluam
-                    de forma independente.
-                </li>
-                <li><b>Cacheable (Cacheável)</b>: As respostas devem ser explicitamente rotuladas como cacheáveis ou não
-                    cacheáveis, o que melhora a eficiência das requisições subsequentes.
-                </li>
-                <li><b>Layered System (Sistema em Camadas)</b>: A arquitetura permite o uso de camadas intermediárias,
-                    como
-                    servidores de cache ou proxies, para melhorar a escalabilidade e a segurança.
-                </li>
-            </ul>
-            <h3>Vantagens do Uso de APIs RESTful em Aplicações Web</h3>
-            <ul>
-                <li><b>Escalabilidade</b>: As APIs RESTful são projetadas para funcionar bem em grandes redes
-                    distribuídas,
-                    facilitando o crescimento da aplicação.
-                </li>
-                <li><b>Facilidade de Integração</b>: A simplicidade e padronização das APIs RESTful facilitam a
-                    integração com
-                    outros sistemas e serviços.
-                </li>
-                <li><b>Reusabilidade</b>: APIs RESTful permitem que diferentes partes de uma aplicação compartilhem
-                    funcionalidades, reduzindo a duplicação de código.
-                </li>
-            </ul>
-        </section>
-
-        <section id="componentes">
-            <h2>Componentes de uma API RESTful</h2>
-            <h3>Métodos HTTP</h3>
-            <p>As APIs RESTful utilizam métodos HTTP para realizar operações em recursos. Os principais métodos são:</p>
-            <ul>
-                <li>
-                    <b>GET</b>: Recupera informações de um servidor. Exemplo: obter os detalhes de um usuário.
-                </li>
-                <li>
-                    <b>POST</b>: Envia dados ao servidor para criar um novo recurso. Exemplo: criar um novo usuário.
-                </li>
-                <li>
-                    <b>PUT</b>: Atualiza um recurso existente com novos dados. Exemplo: atualizar as informações de um
-                    usuário.
-                </li>
-                <li>
-                    <b>DELETE</b>: Remove um recurso do servidor. Exemplo: excluir um usuário.
-                </li>
-                <li>
-                    <b>PATCH</b>: Aplica atualizações parciais a um recurso. Exemplo: atualizar parcialmente as
-                    informações de um usuário.
-                </li>
-            </ul>
-            <h3>Endpoints</h3>
-            <p>Endpoints são URLs que representam os recursos de uma API. Eles são os pontos de entrada para as
-                operações de API e devem ser bem estruturados e organizados. Boas práticas para criar endpoints incluem:
-            </p>
-            <ul>
-                <li>
-                    Usar substantivos no plural (ex: <span
-                        style="color: green; font-family: 'Roboto Mono', sans-serif;">/users</span> em vez de <span
-                        style="color: green; font-family: 'Roboto Mono', sans-serif;">/user</span>).
-                </li>
-                <li>
-                    Evitar verbos nos endpoints, já que a ação é indicada pelo método HTTP.
-                </li>
-                <li>
-                    Aninhar recursos relacionados para indicar hierarquia (ex: <span
-                        style="color: green; font-family: 'Roboto Mono', sans-serif;">/users/{userId}/orders</span>).
-                </li>
-            </ul>
-            <h3>Status Codes</h3>
-            <p>Os códigos de status HTTP indicam o resultado de uma requisição. Alguns dos códigos mais comuns incluem:
-            </p>
-            <ul>
-                <li>
-                    <b>200 OK</b>: A requisição foi bem-sucedida.
-                </li>
-                <li>
-                    <b>201 Created</b>: Um novo recurso foi criado com sucesso.
-                </li>
-                <li>
-                    <b>400 Bad Request</b>: A requisição é inválida ou malformada.
-                </li>
-                <li>
-                    <b>401 Unauthorized</b>: Autenticação é necessária para acessar o recurso.
-                </li>
-                <li>
-                    <b>404 Not Found</b>: O recurso solicitado não foi encontrado.
-                </li>
-                <li>
-                    <b>500 Internal Server Error</b>: O servidor encontrou um erro inesperado.
-                </li>
-            </ul>
-            <h3>Headers e Autenticação</h3>
-            <p>Headers HTTP carregam informações adicionais sobre a requisição ou a resposta. São usados para:</p>
-            <ul>
-                <li>
-                    <b>Autenticação</b>: Incluem tokens de autenticação, como JWT (JSON Web Tokens) ou OAuth.
-                </li>
-                <li>
-                    <b>Controle de cache</b>: Determinam como as respostas podem ser armazenadas em cache.
-                </li>
-                <li>
-                    <b>Controle de conteúdo</b>Especificam o tipo de conteúdo retornado (ex: <span
-                        style="color: green; font-family: 'Roboto Mono', sans-serif;">Content-Type:
-                        application/json</span>).
-                </li>
-            </ul>
-            <h3>Formatação de Dados</h3>
-            <p>As APIs RESTful geralmente usam JSON (JavaScript Object Notation) para trocar dados, devido à sua
-                simplicidade e compatibilidade com várias linguagens de programação. Outro formato comum é XML, embora
-                seja menos utilizado em novas aplicações.</p>
-            <p>Exemplo de resposta em JSON:</p>
-            <div class="codigo-container">
-                <pre><code>
+            <section id="componentes">
+                <h2>2. Componentes de uma API RESTful</h2>
+                <h3>Métodos HTTP</h3>
+                <p>As APIs RESTful utilizam métodos HTTP para realizar operações em recursos. Os principais métodos são:
+                </p>
+                <ul>
+                    <li>
+                        <b>GET</b>: Recupera informações de um servidor. Exemplo: obter os detalhes de um usuário.
+                    </li>
+                    <li>
+                        <b>POST</b>: Envia dados ao servidor para criar um novo recurso. Exemplo: criar um novo usuário.
+                    </li>
+                    <li>
+                        <b>PUT</b>: Atualiza um recurso existente com novos dados. Exemplo: atualizar as informações de
+                        um
+                        usuário.
+                    </li>
+                    <li>
+                        <b>DELETE</b>: Remove um recurso do servidor. Exemplo: excluir um usuário.
+                    </li>
+                    <li>
+                        <b>PATCH</b>: Aplica atualizações parciais a um recurso. Exemplo: atualizar parcialmente as
+                        informações de um usuário.
+                    </li>
+                </ul>
+                <h3>Endpoints</h3>
+                <p>Endpoints são URLs que representam os recursos de uma API. Eles são os pontos de entrada para as
+                    operações de API e devem ser bem estruturados e organizados. Boas práticas para criar endpoints
+                    incluem:
+                </p>
+                <ul>
+                    <li>
+                        Usar substantivos no plural (ex: <span
+                            style="color: green; font-family: 'Roboto Mono', sans-serif;">/users</span> em vez de <span
+                            style="color: green; font-family: 'Roboto Mono', sans-serif;">/user</span>).
+                    </li>
+                    <li>
+                        Evitar verbos nos endpoints, já que a ação é indicada pelo método HTTP.
+                    </li>
+                    <li>
+                        Aninhar recursos relacionados para indicar hierarquia (ex: <span
+                            style="color: green; font-family: 'Roboto Mono', sans-serif;">/users/{userId}/orders</span>).
+                    </li>
+                </ul>
+                <h3>Status Codes</h3>
+                <p>Os códigos de status HTTP indicam o resultado de uma requisição. Alguns dos códigos mais comuns
+                    incluem:
+                </p>
+                <ul>
+                    <li>
+                        <b>200 OK</b>: A requisição foi bem-sucedida.
+                    </li>
+                    <li>
+                        <b>201 Created</b>: Um novo recurso foi criado com sucesso.
+                    </li>
+                    <li>
+                        <b>400 Bad Request</b>: A requisição é inválida ou malformada.
+                    </li>
+                    <li>
+                        <b>401 Unauthorized</b>: Autenticação é necessária para acessar o recurso.
+                    </li>
+                    <li>
+                        <b>404 Not Found</b>: O recurso solicitado não foi encontrado.
+                    </li>
+                    <li>
+                        <b>500 Internal Server Error</b>: O servidor encontrou um erro inesperado.
+                    </li>
+                </ul>
+                <h3>Headers e Autenticação</h3>
+                <p>Headers HTTP carregam informações adicionais sobre a requisição ou a resposta. São usados para:</p>
+                <ul>
+                    <li>
+                        <b>Autenticação</b>: Incluem tokens de autenticação, como JWT (JSON Web Tokens) ou OAuth.
+                    </li>
+                    <li>
+                        <b>Controle de cache</b>: Determinam como as respostas podem ser armazenadas em cache.
+                    </li>
+                    <li>
+                        <b>Controle de conteúdo</b>Especificam o tipo de conteúdo retornado (ex: <span
+                            style="color: green; font-family: 'Roboto Mono', sans-serif;">Content-Type:
+                            application/json</span>).
+                    </li>
+                </ul>
+                <h3>Formatação de Dados</h3>
+                <p>As APIs RESTful geralmente usam JSON (JavaScript Object Notation) para trocar dados, devido à sua
+                    simplicidade e compatibilidade com várias linguagens de programação. Outro formato comum é XML,
+                    embora
+                    seja menos utilizado em novas aplicações.</p>
+                <p>Exemplo de resposta em JSON:</p>
+                <div class="codigo-container">
+                    <pre><code>
                 {
                     "id": 1,
                     "name": "John Doe",
                     "email": "john.doe@example.com"
                 }
                 </code></pre>
-            </div>
-        </section>
+                </div>
+            </section>
 
-        <section id="exemplo">
-            <h2>Exemplo Prático: Consumindo uma API RESTful</h2>
-            <h3>Preparando o Ambiente</h3>
-            <p>Para começar a consumir uma API RESTful, você precisará das seguintes ferramentas:</p>
-            <ul>
-                <li>
-                    <b>Postman</b>: Uma ferramenta para testar APIs, facilitando a criação e envio de requisições HTTP.
-                </li>
-                <li>
-                    <b>Visual Studio Code (VSCode)</b>: Um editor de código leve e poderoso para escrever scripts e
-                    desenvolver sua aplicação.
-                </li>
-                <li>
-                    <b>Navegador da Web</b>: Para visualizar a aplicação em execução.
-                </li>
-            </ul>
-            <h3>Exemplo com uma API Pública</h3>
-            <p>Vamos consumir uma API pública, como a JSONPlaceholder, que é uma API falsa usada para testes. Vamos
-                buscar os dados de um usuário usando JavaScript.</p>
-            <p>Código de exemplo utilizando <span
-                    style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span>:</p>
-            <div class="codigo-container">
-                <pre><code>
+            <section id="exemplo">
+                <h2>3. Exemplo Prático: Consumindo uma API RESTful</h2>
+                <h3>Preparando o Ambiente</h3>
+                <p>Para começar a consumir uma API RESTful, você precisará das seguintes ferramentas:</p>
+                <ul>
+                    <li>
+                        <b>Postman</b>: Uma ferramenta para testar APIs, facilitando a criação e envio de requisições
+                        HTTP.
+                    </li>
+                    <li>
+                        <b>Visual Studio Code (VSCode)</b>: Um editor de código leve e poderoso para escrever scripts e
+                        desenvolver sua aplicação.
+                    </li>
+                    <li>
+                        <b>Navegador da Web</b>: Para visualizar a aplicação em execução.
+                    </li>
+                </ul>
+                <h3>Exemplo com uma API Pública</h3>
+                <p>Vamos consumir uma API pública, como a JSONPlaceholder, que é uma API falsa usada para testes. Vamos
+                    buscar os dados de um usuário usando JavaScript.</p>
+                <p>Código de exemplo utilizando <span
+                        style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span>:</p>
+                <div class="codigo-container">
+                    <pre><code>
                     // URL do endpoint da API
                     const url = 'https://jsonplaceholder.typicode.com/users/1';
                     
@@ -206,14 +219,16 @@
                         .then(data => console.log(data))
                         .catch(error => console.error('Erro:', error));                        
                     </code></pre>
-            </div>
-            <p>Nesse exemplo, o <span style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span> faz uma
-                requisição GET para o endpoint /users/1 e exibe os dados do usuário no console.</p>
-            <h3>Manipulação de Dados</h3>
-            <p>Após obter os dados da API, você pode manipulá-los para exibição ou processamento. Vamos renderizar as
-                informações do usuário em uma página HTML:</p>
-            <div class="codigo-container">
-                <pre><code>
+                </div>
+                <p>Nesse exemplo, o <span style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span> faz
+                    uma
+                    requisição GET para o endpoint /users/1 e exibe os dados do usuário no console.</p>
+                <h3>Manipulação de Dados</h3>
+                <p>Após obter os dados da API, você pode manipulá-los para exibição ou processamento. Vamos renderizar
+                    as
+                    informações do usuário em uma página HTML:</p>
+                <div class="codigo-container">
+                    <pre><code>
                     &lt;div id="user-info"&gt;&lt;/div&gt;
                         
                     &lt;script&gt;
@@ -232,34 +247,35 @@
                         .catch(error =&gt; console.error('Erro:', error));
                     &lt;/script&gt;
                 </code></pre>
-            </div>
-            <p>Este código renderiza o nome, e-mail e telefone do usuário na página.</p>
-        </section>
+                </div>
+                <p>Este código renderiza o nome, e-mail e telefone do usuário na página.</p>
+            </section>
 
-        <section id="integracao">
-            <h2>Integração de APIs RESTful em Aplicações Web</h2>
-            <p>React.js, Vue.js, Testes e Documentação...</p>
+            <section id="integracao">
+                <h2>4. Integração de APIs RESTful em Aplicações Web</h2>
+                <p>React.js, Vue.js, Testes e Documentação...</p>
 
-        </section>
+            </section>
 
-        <section id="seguranca">
-            <h2>Segurança no Consumo de APIs</h2>
-            <p>Autenticação, Autorização, Proteção contra ataques...</p>
+            <section id="seguranca">
+                <h2>5. Segurança no Consumo de APIs</h2>
+                <p>Autenticação, Autorização, Proteção contra ataques...</p>
 
-        </section>
+            </section>
 
-        <section id="responsivo">
-            <h2>Desenvolvimento Responsivo</h2>
-            <p>Importância, Técnicas, Exemplo Prático...</p>
+            <section id="responsivo">
+                <h2>6. Desenvolvimento Responsivo</h2>
+                <p>Importância, Técnicas, Exemplo Prático...</p>
 
-        </section>
+            </section>
 
-        <section id="conclusao">
-            <h2>Considerações Finais e Recomendações</h2>
-            <p>Dicas para melhores práticas, recursos adicionais...</p>
+            <section id="conclusao">
+                <h2>7. Considerações Finais e Recomendações</h2>
+                <p>Dicas para melhores práticas, recursos adicionais...</p>
 
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 Consumo de APIs RESTful - Todos os direitos reservados.</p>

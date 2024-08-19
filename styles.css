@@ -80,8 +80,48 @@ footer {
     display: block;
     color: green;
 }
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
 
-/* Estilo responsivo */
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-lateral ul li {
+    margin: 10px 0;
+}
+
+.menu-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.menu-lateral ul li a:hover {
+    background-color: #575757;
+}
+
+/* Conteúdo Principal */
+.conteudo {
+    margin-left: 220px; /* Espaço para o menu lateral */
+    padding: 20px;
+}
+
+
 @media (max-width: 600px) {
     header h1 {
         font-size: 2rem;
