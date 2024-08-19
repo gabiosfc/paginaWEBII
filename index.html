@@ -178,11 +178,11 @@
                 <p>Exemplo de resposta em JSON:</p>
                 <div class="codigo-container">
                     <pre><code>
-                {
-                    "id": 1,
-                    "name": "John Doe",
-                    "email": "john.doe@example.com"
-                }
+{
+    "id": 1,
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+}
                 </code></pre>
                 </div>
             </section>
@@ -211,14 +211,14 @@
                         style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span>:</p>
                 <div class="codigo-container">
                     <pre><code>
-                    // URL do endpoint da API
-                    const url = 'https://jsonplaceholder.typicode.com/users/1';
-                    
-                    // Realizando a requisição GET
-                    fetch(url)
-                        .then(response => response.json())
-                        .then(data => console.log(data))
-                        .catch(error => console.error('Erro:', error));                        
+// URL do endpoint da API
+const url = 'https://jsonplaceholder.typicode.com/users/1';
+
+// Realizando a requisição GET
+fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erro:', error));                        
                     </code></pre>
                 </div>
                 <p>Nesse exemplo, o <span style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span> faz
@@ -230,23 +230,23 @@
                     informações do usuário em uma página HTML:</p>
                 <div class="codigo-container">
                     <pre><code>
-                    &lt;div id="user-info"&gt;&lt;/div&gt;
-                        
-                    &lt;script&gt;
-                        const url = 'https://jsonplaceholder.typicode.com/users/1';
-                    
-                        fetch(url)
-                        .then(response =&gt; response.json())
-                        .then(data =&gt; {
-                            const userInfoDiv = document.getElementById('user-info');
-                            userInfoDiv.innerHTML = `
-                            &lt;h2&gt;${data.name}&lt;/h2&gt;
-                            &lt;p&gt;Email: ${data.email}&lt;/p&gt;
-                            &lt;p&gt;Phone: ${data.phone}&lt;/p&gt;
-                            `;
-                        })
-                        .catch(error =&gt; console.error('Erro:', error));
-                    &lt;/script&gt;
+&lt;div id="user-info"&gt;&lt;/div&gt;
+    
+&lt;script&gt;
+    const url = 'https://jsonplaceholder.typicode.com/users/1';
+
+    fetch(url)
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+        const userInfoDiv = document.getElementById('user-info');
+        userInfoDiv.innerHTML = `
+        &lt;h2&gt;${data.name}&lt;/h2&gt;
+        &lt;p&gt;Email: ${data.email}&lt;/p&gt;
+        &lt;p&gt;Phone: ${data.phone}&lt;/p&gt;
+        `;
+    })
+    .catch(error =&gt; console.error('Erro:', error));
+&lt;/script&gt;
                 </code></pre>
                 </div>
                 <p>Este código renderiza o nome, e-mail e telefone do usuário na página.</p>
@@ -262,32 +262,32 @@
                 </p>
                 <div class="codigo-container">
                     <pre><code>
-                    import React, { useState, useEffect } from 'react';
-                    import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-                    function UserComponent() {
-                    const [user, setUser] = useState(null);
+function UserComponent() {
+const [user, setUser] = useState(null);
 
-                    useEffect(() => {
-                        axios.get('https://jsonplaceholder.typicode.com/users/1')
-                        .then(response => setUser(response.data))
-                        .catch(error => console.error('Erro:', error));
-                    }, []);
+useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users/1')
+    .then(response => setUser(response.data))
+    .catch(error => console.error('Erro:', error));
+}, []);
 
-                    return (
-                        &lt;div&gt;
-                        {user && (
-                            &lt;&gt;
-                            &lt;h2&gt;{user.name}&lt;/h2&gt;
-                            &lt;p&gt;Email: {user.email}&lt;/p&gt;
-                            &lt;p&gt;Phone: {user.phone}&lt;/p&gt;
-                            &lt;/&gt;
-                        )}
-                        &lt;/div&gt;
-                    );
-                    }
+return (
+    &lt;div&gt;
+    {user && (
+        &lt;&gt;
+        &lt;h2&gt;{user.name}&lt;/h2&gt;
+        &lt;p&gt;Email: {user.email}&lt;/p&gt;
+        &lt;p&gt;Phone: {user.phone}&lt;/p&gt;
+        &lt;/&gt;
+    )}
+    &lt;/div&gt;
+);
+}
 
-                    export default UserComponent;
+export default UserComponent;
                     </code></pre>
                 </div>
                 <h4>Vue.js</h4>
@@ -295,31 +295,31 @@
                     usando Vue:</p>
                 <div class="codigo-container">
                     <pre><code>
-                    &lt;template&gt;
-                    &lt;div v-if="user"&gt;
-                        &lt;h2&gt;{{ user.name }}&lt;/h2&gt;
-                        &lt;p&gt;Email: {{ user.email }}&lt;/p&gt;
-                        &lt;p&gt;Phone: {{ user.phone }}&lt;/p&gt;
-                    &lt;/div&gt;
-                    &lt;/template&gt;
+&lt;template&gt;
+&lt;div v-if="user"&gt;
+    &lt;h2&gt;{{ user.name }}&lt;/h2&gt;
+    &lt;p&gt;Email: {{ user.email }}&lt;/p&gt;
+    &lt;p&gt;Phone: {{ user.phone }}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/template&gt;
 
-                    &lt;script&gt;
-                    export default {
-                    data() {
-                        return {
-                        user: null,
-                        };
-                    },
-                    created() {
-                        fetch('https://jsonplaceholder.typicode.com/users/1')
-                        .then(response =&gt; response.json())
-                        .then(data =&gt; {
-                            this.user = data;
-                        })
-                        .catch(error =&gt; console.error('Erro:', error));
-                    },
-                    };
-                    &lt;/script&gt;
+&lt;script&gt;
+export default {
+data() {
+    return {
+    user: null,
+    };
+},
+created() {
+    fetch('https://jsonplaceholder.typicode.com/users/1')
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+        this.user = data;
+    })
+    .catch(error =&gt; console.error('Erro:', error));
+},
+};
+&lt;/script&gt;
                     </code></pre>
                 </div>
                 <h3>Ferramentas para Testes e Documentação de APIs</h3>
@@ -355,14 +355,14 @@
                 <p>Exemplo de uso de JWT:</p>
                 <div class="codigo-container">
                     <pre><code>
-                    fetch('https://api.example.com/protected', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                    })
-                    .then(response =&gt; response.json())
-                    .then(data =&gt; console.log(data))
-                    .catch(error =&gt; console.error('Erro:', error));
+fetch('https://api.example.com/protected', {
+headers: {
+    'Authorization': `Bearer ${token}`
+}
+})
+.then(response =&gt; response.json())
+.then(data =&gt; console.log(data))
+.catch(error =&gt; console.error('Erro:', error));
                     </code></pre>
                 </div>
                 <h3>Proteção contra Ataques</h3>
@@ -404,67 +404,67 @@
                 <p>Exemplo de media query:</p>
                 <div class="codigo-container">
                     <pre><code>
-                    /* Layout para telas pequenas */
-                    @media (max-width: 600px) {
-                    body {
-                        font-size: 14px;
-                    }
-                    }
+/* Layout para telas pequenas */
+@media (max-width: 600px) {
+body {
+    font-size: 14px;
+}
+}
 
-                    /* Layout para telas maiores */
-                    @media (min-width: 601px) {
-                    body {
-                        font-size: 16px;
-                    }
-                    }
+/* Layout para telas maiores */
+@media (min-width: 601px) {
+body {
+    font-size: 16px;
+}
+}
                     </code></pre>
                 </div>
                 <h3>Exemplo Prático</h3>
                 <p>Crie uma página HTML simples que consome uma API e se adapta a diferentes dispositivos</p>
                 <div class="codigo-container">
                     <pre><code>
-                    &lt;!DOCTYPE html&gt;
-                    &lt;html lang="en"&gt;
-                    &lt;head&gt;
-                    &lt;meta charset="UTF-8"&gt;
-                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                    &lt;title&gt;API Responsiva&lt;/title&gt;
-                    &lt;style&gt;
-                        body {
-                        font-family: Arial, sans-serif;
-                        padding: 20px;
-                        }
-                        .user-info {
-                        max-width: 600px;
-                        margin: 0 auto;
-                        }
-                        @media (max-width: 600px) {
-                        body {
-                            padding: 10px;
-                        }
-                        }
-                    &lt;/style&gt;
-                    &lt;/head&gt;
-                    &lt;body&gt;
-                    &lt;div id="user-info" class="user-info"&gt;&lt;/div&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;API Responsiva&lt;/title&gt;
+&lt;style&gt;
+    body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    }
+    .user-info {
+    max-width: 600px;
+    margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="user-info" class="user-info"&gt;&lt;/div&gt;
 
-                    &lt;script&gt;
-                        const url = 'https://jsonplaceholder.typicode.com/users/1';
+&lt;script&gt;
+    const url = 'https://jsonplaceholder.typicode.com/users/1';
 
-                        fetch(url)
-                        .then(response =&gt; response.json())
-                        .then(data =&gt; {
-                            const userInfoDiv = document.getElementById('user-info');
-                            userInfoDiv.innerHTML = `
-                            &lt;h2&gt;${data.name}&lt;/h2&gt;
-                            &lt;p&gt;Email: ${data.email}&lt;/p&gt;
-                            &lt;p&gt;Phone: ${data.phone}&lt;/p&gt;
-                            `;
-                        })
-                        .catch(error =&gt; console.error('Erro:', error));
-                    &lt;/script&gt;
-                    &lt;/body&gt;
-                    &lt;/html&gt;
+    fetch(url)
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+        const userInfoDiv = document.getElementById('user-info');
+        userInfoDiv.innerHTML = `
+        &lt;h2&gt;${data.name}&lt;/h2&gt;
+        &lt;p&gt;Email: ${data.email}&lt;/p&gt;
+        &lt;p&gt;Phone: ${data.phone}&lt;/p&gt;
+        `;
+    })
+    .catch(error =&gt; console.error('Erro:', error));
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
                     </code></pre>
             </section>
 
