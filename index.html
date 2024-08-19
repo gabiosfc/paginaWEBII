@@ -163,7 +163,7 @@
                 simplicidade e compatibilidade com várias linguagens de programação. Outro formato comum é XML, embora
                 seja menos utilizado em novas aplicações.</p>
             <p>Exemplo de resposta em JSON:</p>
-            <div class="json-container">
+            <div class="codigo-container">
                 <pre><code>
                 {
                     "id": 1,
@@ -183,18 +183,57 @@
                     <b>Postman</b>: Uma ferramenta para testar APIs, facilitando a criação e envio de requisições HTTP.
                 </li>
                 <li>
-                    <b>Visual Studio Code (VSCode)</b>: Um editor de código leve e poderoso para escrever scripts e desenvolver sua aplicação.
+                    <b>Visual Studio Code (VSCode)</b>: Um editor de código leve e poderoso para escrever scripts e
+                    desenvolver sua aplicação.
                 </li>
                 <li>
                     <b>Navegador da Web</b>: Para visualizar a aplicação em execução.
                 </li>
             </ul>
             <h3>Exemplo com uma API Pública</h3>
-            <p>Vamos consumir uma API pública, como a JSONPlaceholder, que é uma API falsa usada para testes. Vamos buscar os dados de um usuário usando JavaScript.</p>
+            <p>Vamos consumir uma API pública, como a JSONPlaceholder, que é uma API falsa usada para testes. Vamos
+                buscar os dados de um usuário usando JavaScript.</p>
             <p>Código de exemplo utilizando <span
-                style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch:</span></p>
-            <div id="user-info" class="user-info"></div>
-            <!-- O conteúdo será preenchido pelo JavaScript -->
+                    style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span>:</p>
+            <div class="codigo-container">
+                <pre><code>
+                    // URL do endpoint da API
+                    const url = 'https://jsonplaceholder.typicode.com/users/1';
+                    
+                    // Realizando a requisição GET
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(error => console.error('Erro:', error));                        
+                    </code></pre>
+            </div>
+            <p>Nesse exemplo, o <span style="color: green; font-family: 'Roboto Mono', sans-serif;">fetch</span> faz uma
+                requisição GET para o endpoint /users/1 e exibe os dados do usuário no console.</p>
+            <h3>Manipulação de Dados</h3>
+            <p>Após obter os dados da API, você pode manipulá-los para exibição ou processamento. Vamos renderizar as
+                informações do usuário em uma página HTML:</p>
+            <div class="codigo-container">
+                <pre><code>
+                    &lt;div id="user-info"&gt;&lt;/div&gt;
+                        
+                    &lt;script&gt;
+                        const url = 'https://jsonplaceholder.typicode.com/users/1';
+                    
+                        fetch(url)
+                        .then(response =&gt; response.json())
+                        .then(data =&gt; {
+                            const userInfoDiv = document.getElementById('user-info');
+                            userInfoDiv.innerHTML = `
+                            &lt;h2&gt;${data.name}&lt;/h2&gt;
+                            &lt;p&gt;Email: ${data.email}&lt;/p&gt;
+                            &lt;p&gt;Phone: ${data.phone}&lt;/p&gt;
+                            `;
+                        })
+                        .catch(error =&gt; console.error('Erro:', error));
+                    &lt;/script&gt;
+                </code></pre>
+            </div>
+            <p>Este código renderiza o nome, e-mail e telefone do usuário na página.</p>
         </section>
 
         <section id="integracao">

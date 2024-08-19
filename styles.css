@@ -62,7 +62,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
-.json-container {
+.codigo-container {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
@@ -71,12 +71,12 @@ footer {
     font-family: 'Roboto Mono', sans-serif, monospace;
 }
 
-.json-container pre {
+.codigo-container pre {
     margin: 0;
     white-space: pre-wrap;
 }
 
-.json-container code {
+.codigo-container code {
     display: block;
     color: green;
 }
