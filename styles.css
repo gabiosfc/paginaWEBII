@@ -67,6 +67,7 @@ main h2 {
 .codigo-container code {
     display: block;
     white-space: pre-wrap;
+    color: green;
 }
 
 .menu-lateral {
