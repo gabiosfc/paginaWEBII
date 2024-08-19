@@ -1,7 +1,22 @@
 // URL do endpoint da API
 const url = 'https://jsonplaceholder.typicode.com/users/1';
 
-// Realizando a requisição GET
+// Função para alternar a visibilidade do menu lateral
+function toggleMenu() {
+    const menu = document.querySelector('.menu-lateral');
+    menu.classList.toggle('menu-show');
+}
+
+// Função para fechar o menu quando clicar fora dele
+function closeMenu(event) {
+    const menu = document.querySelector('.menu-lateral');
+    const menuButton = document.querySelector('.menu-btn');
+    if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+        menu.classList.remove('menu-show');
+    }
+}
+
+// Adiciona o listener para a requisição da API
 fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -15,3 +30,6 @@ fetch(url)
         `;
     })
     .catch(error => console.error('Erro:', error));
+
+// Adiciona o listener de clique para fechar o menu
+document.addEventListener('click', closeMenu);

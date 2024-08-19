@@ -48,55 +48,48 @@ main h2 {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 .codigo-container {
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
     padding: 10px;
-    background-color: #c0c0c0;
     overflow-x: auto;
-    font-family: 'Roboto Mono', sans-serif, monospace;
+    margin: 10px 0;
 }
 
 .codigo-container pre {
     margin: 0;
-    white-space: pre-wrap;
+    font-size: 0.9rem;
 }
 
 .codigo-container code {
     display: block;
-    color: green;
+    white-space: pre-wrap;
 }
+
 .menu-lateral {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 200px;
+    right: 0;
+    width: 250px;
     height: 100%;
     background-color: #333;
-    color: white;
-    padding: 15px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
+    color: #fff;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-lateral.menu-show {
+    transform: translateX(0);
 }
 
 .menu-lateral ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .menu-lateral ul li {
@@ -104,35 +97,44 @@ footer {
 }
 
 .menu-lateral ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    display: block;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
     padding: 10px;
-    border-radius: 4px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-
-.menu-lateral ul li a:hover {
-    background-color: #575757;
-}
-
-/* Conteúdo Principal */
-.conteudo {
-    margin-left: 220px; /* Espaço para o menu lateral */
-    padding: 20px;
-}
-
 
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 2rem;
+    body {
+        padding: 10px;
     }
 
-    nav ul li {
-        display: block;
-        margin: 10px 0;
+    .menu-lateral {
+        width: 200px;
     }
 
-    nav ul li a {
-        font-size: 1.2rem;
+    .menu-btn {
+        top: 10px;
+        right: 10px;
     }
 }
